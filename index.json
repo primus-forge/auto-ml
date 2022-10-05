@@ -1,0 +1,38 @@
+{
+  "auto_ml_train": {
+    "text": "Auto Train",
+    "function": "df__auto_ml_train",
+    "command": "auto_ml_train",
+    "preview": false,
+    "save": false,
+    "path": "TRANSFORMATIONS/ML",
+    "parameters": {
+      "target_col": {
+        "label": "Target column",
+        "type": "column"
+      },
+      "model_name": {
+        "label": "Model name",
+        "type": "string"
+      }
+    }
+  },
+  "auto_ml_predict": {
+    "text": "Predict",
+    "function": "df__auto_ml_predict",
+    "command": "auto_ml_predict",
+    "preview": false,
+    "save": false,
+    "path": "TRANSFORMATIONS/ML",
+    "parameters": {
+      "col_name": {
+        "label": "Prediction column name",
+        "type": "string"
+      },
+      "model_name": {
+        "label": "Model name",
+        "type": "string"
+      }
+    }
+  }
+}

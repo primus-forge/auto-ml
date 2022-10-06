@@ -7,6 +7,9 @@
     "columns": "feature_cols",
     "save": false,
     "path": "TRANSFORMATIONS/ML",
+    "payload": {
+      "skipAtInit": true
+    },
     "parameters": {
       "feature_cols": {
         "label": "Feature columns",

@@ -5,12 +5,10 @@ def df__auto_ml_predict(df, col_name="prediction_result", model_name=None):
     if model_name is None:
         raise ValueError("model_name cannot be None")
 
-    # LOAD
-    global models
-    if model_name not in models:
-        raise AttributeError(f"'{model_name}' not found in saved models")
-    automl = models[model_name]
-    # LOAD
+    import pickle
+
+    with open(f"{model_name}.automlmodel", 'rb') as f:
+        automl = pickle.load(f)
 
     predictions = automl.predict(df.data)
     return df.cols.assign({col_name: predictions})

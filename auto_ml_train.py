@@ -1,8 +1,3 @@
-try:
-    models
-except:
-    models = {}
-
 def df__auto_ml_train(_df=None, feature_cols="*", target_col=None, model_name=None, **kwargs):
             
     if _df is None:
@@ -18,6 +13,7 @@ def df__auto_ml_train(_df=None, feature_cols="*", target_col=None, model_name=No
     import pandas as pd
     from sklearn.model_selection import train_test_split
     from supervised.automl import AutoML
+    import pickle
 
     pdf = _df.data
     
@@ -30,13 +26,11 @@ def df__auto_ml_train(_df=None, feature_cols="*", target_col=None, model_name=No
     if not len(kwargs):
         kwargs.update({"mode": "Explain"})
 
-    automl = AutoML(**kwargs)
-    automl.fit(X_train, y_train)
+    model = AutoML(**kwargs)
+    model.fit(X_train, y_train)
     
-    # SAVE
-    global models
-    models.update({model_name: automl})
-    # SAVE
+    with open(f"{model_name}.automlmodel", 'wb') as files:
+        pickle.dump(model, files)
     
     return _df
     # return automl.report()

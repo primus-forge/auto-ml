@@ -4,12 +4,23 @@
     "function": "df__auto_ml_train",
     "command": "auto_ml_train",
     "preview": false,
+    "columns": "feature_cols",
     "save": false,
     "path": "TRANSFORMATIONS/ML",
     "parameters": {
+      "feature_cols": {
+        "label": "Feature columns",
+        "type": "columns"
+      },
       "target_col": {
         "label": "Target column",
         "type": "column"
+      },
+      "mode": {
+        "label": "Mode",
+        "type": "string",
+        "value": "Explain",
+        "items": ["Explain", "Perform", "Compete"]
       },
       "model_name": {
         "label": "Model name",

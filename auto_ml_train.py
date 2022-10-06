@@ -5,9 +5,15 @@ except:
 
 def df__auto_ml_train(_df=None, feature_cols="*", target_col=None, model_name=None, **kwargs):
             
-    assert _df is not None
-    assert target_col is not None
-    assert model_name is not None
+    if _df is None:
+        raise ValueError("_df cannot be None")
+
+    if target_col is None:
+        raise ValueError("target_col cannot be None")
+
+    if model_name is None:
+        raise ValueError("model_name cannot be None")
+
 
     import pandas as pd
     from sklearn.model_selection import train_test_split

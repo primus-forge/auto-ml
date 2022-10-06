@@ -2,11 +2,13 @@ def df__auto_ml_predict(df, col_name="prediction_result", model_name=None):
     
     # TODO: check datadrift
     
-    assert model_name is not None
+    if model_name is None:
+        raise ValueError("model_name cannot be None")
 
     # LOAD
     global models
-    assert model_name in models
+    if model_name not in models:
+        raise AttributeError(f"'{model_name}' not found in saved models")
     automl = models[model_name]
     # LOAD
 
